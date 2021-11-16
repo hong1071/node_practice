@@ -24,4 +24,20 @@ router.route("/join").post(function (req, res) {
     res.render('user/join');
 });
 
+router.route("/api").post(function (req, res) {
+    const vo = {
+        no: 10,
+        name: '둘리',
+        email: 'dooly@gmail.com',
+        gender: 'male'
+    }
+    /*
+    res.writeHead(200, {
+        'Content-Type': "application/json"
+    });
+    res.end(JSON.stringify(vo));
+    */
+   res.send(vo);
+});
+
 module.exports = router;
