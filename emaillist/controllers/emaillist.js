@@ -1,9 +1,10 @@
 const model = require('../models/emaillist');
 module.exports = {
-    index: function(req, res){
-        const result = model.findAll();
+    index: async function(req, res){
+        const results = await model.findAll(function(){});
+        console.log(results);
         res.render('index', {
-            list: result || []
+            list: results || []
         });
     }
 }
