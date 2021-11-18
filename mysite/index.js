@@ -1,16 +1,13 @@
-
 const http = require('http');
 const path = require('path')
 const express = require('express');
 const dotenv = require('dotenv');
 
-
-
 // 1. Environment Variables
 dotenv.config({path: path.join(__dirname, 'config/app.env')})
 
 // 2. Application Routers
-const applicationRouter = require('../routes');
+const { applicationRouter } = require('./routes');
 
 // 3. Logger
 
@@ -28,11 +25,8 @@ const application = express()
     .set('views', path.join(__dirname, 'views'))
     .set('view engine', 'ejs');
 
-
-
-
 // 5. Application Router Setup
-applicationRouter.setup();
+applicationRouter.setup(application);
 
 
 // 6. Server Setup

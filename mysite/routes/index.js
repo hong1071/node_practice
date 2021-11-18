@@ -1,12 +1,22 @@
-const mainRouter = require('./routes/main');
-const userRouter = require('./routes/user');
+const errorRoute = require('./error');
 
-    // 4) request router                        모든 라우터를 다 받아서 선 처리 한다. 주로 인증을 함
-    .all('*', function(req, res, next){
-        res.locals.req = req;
-        res.locals.res = res;
-        next();
-    });
+const applicationRouter = {
+    setup: function(application){
+        //const site = models.Site.findOne;
+        application
+            .all('*', function(req, res, next){
+                res.locals.req = req;
+                res.locals.res = res;
+                next();
+            })
 
-//.use('/', mainRouter)
-//.use('/', userRouter);
+            .use('/', require('./main'))
+            .use('/user', require('./user'))
+
+            .use(errorRoute.error404)
+            .use(errorRoute.error500)
+
+            .siteTitle = 'MySite';          // ejs에서 req.app.siteTitle로 사용가능
+    }
+} 
+module.exports = { applicationRouter };
