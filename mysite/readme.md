@@ -5,7 +5,7 @@
 [mysite] $ npm i express
 [mysite] $ npm i ejs
 [mysite] $ npm i mysql2
-[mysite] $ npm i express-session
+[mysite] $ npm i express-session                        // 세션처리하는데 사용
 [mysite] $ npm i sequelize
 [mysite] $ npm i dotenv
 [mysite] $ npm i multer

@@ -12,16 +12,16 @@ module.exports = {
         })
     },
     error500: function(error, req, res, next){
-        logger.error(err.stack);
+        logger.error(error.stack);
 
         if(req.accepts('html')){
-            res.status(500).send(`<pre>${err.stack}</pre>`);
+            res.status(500).send(`<pre>${error.stack}</pre>`);
             return;
         }
         res.status(500).send({
             result: 'fail',
             data: null,
-            message: err.stack
+            message: error.stack
         })
     }
 }
