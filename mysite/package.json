@@ -23,7 +23,7 @@
   "scripts": {
     "start": "node index.js",
     "debug": "nodemon index.js",
-    "test" : "npx mocha"
+    "test": "npx mocha"
   },
   "keywords": [],
   "author": "",

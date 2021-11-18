@@ -1,4 +1,4 @@
-const errorRoute = require('./error');
+//const errorRoute = require('./error');
 
 const applicationRouter = {
     setup: function(application){
@@ -13,8 +13,8 @@ const applicationRouter = {
             .use('/', require('./main'))
             .use('/user', require('./user'))
 
-            .use(errorRoute.error404)
-            .use(errorRoute.error500)
+            //.use(errorRoute.error404)
+            //.use(errorRoute.error500)
 
             .siteTitle = 'MySite';          // ejs에서 req.app.siteTitle로 사용가능
     }

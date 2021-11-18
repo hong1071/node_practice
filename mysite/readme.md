@@ -9,8 +9,8 @@
 [mysite] $ npm i sequelize
 [mysite] $ npm i dotenv
 [mysite] $ npm i multer
-[mysite] $ npm i winston
-[mysite] $ npm i winston-daily-rotate-file
+[mysite] $ npm i winston                                // 로깅하는데 사용
+[mysite] $ npm i winston-daily-rotate-file              // 로깅하는데 사용
 [mysite] $ npm i moment
 
 [mysite] $ npm i -D nodemon
