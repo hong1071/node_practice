@@ -67,9 +67,12 @@ module.exports = {
                     no:  req.session.authUser.no
                 }
             })
-            res.render('user/update', {user})
+            res.render('user/update', {user});
         } catch(e){
             next(e);
         }
+    },
+    _update: async function(req, res, next){
+        
     }
 }

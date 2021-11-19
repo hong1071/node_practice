@@ -28,8 +28,8 @@ module.exports = function(sequelize){
             type: DataTypes.ENUM('mail', 'female'),
             allowNull:  false
         },
-        roll: {
-            field: 'roll',
+        role: {
+            field: 'role',
             type: DataTypes.ENUM('USER', 'admin'),
             allowNull:  false,
             defaultValue: 'USER'

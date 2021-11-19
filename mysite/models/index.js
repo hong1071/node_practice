@@ -10,6 +10,7 @@ const sequelize = new Sequelize(process.env.DB_NAME, process.env.DB_USER, proces
 // Import Mapping Object
 const User = require('./User')(sequelize);
 const Guestbook = require('./Guestbook')(sequelize);
+const Gallery = require('./Gallery')(sequelize);
 
 // DB에 반영(DDL)
 User.sync({                             // 동기화
@@ -17,10 +18,16 @@ User.sync({                             // 동기화
     alter: process.env.TABLE_ALTER_ALWAYS === 'true'
 });
 
+
 Guestbook.sync({                             // 동기화
     force: process.env.TABLE_CREATE_ALWAYS === 'true',
     alter: process.env.TABLE_ALTER_ALWAYS === 'true'
 });
 
+Gallery.sync({                             // 동기화
+    force: process.env.TABLE_CREATE_ALWAYS === 'true',
+    alter: process.env.TABLE_ALTER_ALWAYS === 'true'
+});
+
 // Export Mapping Object
-module.exports = {User, Guestbook};
+module.exports = {User, Guestbook, Gallery };

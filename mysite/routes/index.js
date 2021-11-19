@@ -1,8 +1,10 @@
 const errorRoute = require('./error');
 
 const applicationRouter = {
-    setup: function(application){
-        //const site = models.Site.findOne;
+    setup: function(application) {
+        
+        //const site = models.Site.findOne();
+
         application
             .all('*', function(req, res, next){
                 res.locals.req = req;
@@ -10,13 +12,17 @@ const applicationRouter = {
                 next();
             })
 
-            .use('/', require('./main'))
+            .use('/',  require('./main'))
             .use('/user', require('./user'))
+            .use('/guestbook', require('./guestbook'))
+            .use('/api/guestbook', require('./guestbook-api'))
+            .use('/gallery', require('./gallery'))
 
             .use(errorRoute.error404)
             .use(errorRoute.error500)
 
-            .siteTitle = 'MySite';          // ejs에서 req.app.siteTitle로 사용가능
+            .siteTitle = 'MySite';
     }
-} 
-module.exports = { applicationRouter };
+}
+
+module.exports = { applicationRouter }
