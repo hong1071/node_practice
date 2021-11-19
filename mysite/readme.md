@@ -8,7 +8,7 @@
 [mysite] $ npm i express-session                        // 세션처리하는데 사용
 [mysite] $ npm i sequelize
 [mysite] $ npm i dotenv
-[mysite] $ npm i multer
+[mysite] $ npm i multer                                 // 파일 업로드
 [mysite] $ npm i winston                                // 로깅하는데 사용
 [mysite] $ npm i winston-daily-rotate-file              // 로깅하는데 사용
 [mysite] $ npm i moment

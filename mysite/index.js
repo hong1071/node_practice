@@ -3,6 +3,7 @@ const path = require('path')
 const express = require('express');
 const session = require('express-session');
 const dotenv = require('dotenv');
+const multer = require('multer');
 
 // 1. Environment Variables
 dotenv.config({path: path.join(__dirname, 'config/app.env')})
@@ -29,6 +30,9 @@ const application = express()
     .use(express.json())                            // application/json
 
     // 3) Multipart
+    .use(multer({
+        dest:path.join(__dirname, process.env.MULTER_TEPORARY_STORE)                                       //어디에 임시파일을 저장할지
+    }).single('file'))
     
     // 4) static resources 
     .use(express.static(path.join(__dirname, process.env.STATIC_RESOURCES_DIRECTORY)))
@@ -39,7 +43,6 @@ const application = express()
 
 // 5. Application Router Setup
 applicationRouter.setup(application);
-
 
 // 6. Server Setup
 http.createServer(application)

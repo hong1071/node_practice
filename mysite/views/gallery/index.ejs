@@ -51,16 +51,22 @@
 					<a href="" id="upload-image">이미지 올리기</a>
 				</div>
 				<ul>
-					<li>
-						<a	href=""
-							data-lightbox="gallery"
-							class="image"
-							style="background-image:url('')">&nbsp;</a>
-							
-						<a	href="/gallery/delete/"
-							class="del-button"
-							title="삭제">삭제</a>
-					</li>
+					<% 
+						results.forEach(function(vo){ 
+					%>
+						<li>
+							<a	href="<%=vo.url%>"
+								data-lightbox="gallery"
+								class="image"
+								style="background-image:url('<%=vo.url%>')">&nbsp;</a>
+								
+							<a	href="/gallery/delete/<%=vo.no%>"
+								class="del-button"
+								title="삭제">삭제</a>
+						</li>
+					<%
+						}) 
+					%>
 				</ul>	
 			</div>
 
